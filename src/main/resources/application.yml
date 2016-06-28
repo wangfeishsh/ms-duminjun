@@ -30,3 +30,5 @@ spring:
 logging:
   file: e://logs/ms-duminjun.log
   level.*: INFO
+
+mybatis.config: classpath:mybatis-config.xml
