@@ -3,10 +3,7 @@ package com.bao.controller;
 import com.bao.jpa.UrlInfoJpa;
 import com.bao.model.UrlInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ public class UrlInfoController {
     }
 
     @RequestMapping(value = "/urls/{id}" , method = RequestMethod.POST)
-    public String updateUrlInfo(@PathParam("id") String id , @RequestBody UrlInfo urlInfo){
+    public String updateUrlInfo(@PathVariable("id") String id , @RequestBody UrlInfo urlInfo){
         urlInfo.setId(Long.parseLong(id));
         urlInfoJpa.save(urlInfo);
         return "success";
