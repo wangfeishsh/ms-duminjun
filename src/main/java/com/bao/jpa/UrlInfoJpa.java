@@ -8,10 +8,15 @@
 package com.bao.jpa;
 
 import com.bao.model.UrlInfo;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
 public interface UrlInfoJpa extends CrudRepository<UrlInfo, Long> {
 
+    @Modifying
+    @Query("update UrlInfo u set u.url = ?1 , u.desc=?2 where u.id = ?3")
+    int update(String url, String desc ,Long id);
 }

@@ -26,8 +26,13 @@ public class UrlInfoController {
 
     @RequestMapping(value = "/urls/{id}" , method = RequestMethod.POST)
     public String updateUrlInfo(@PathVariable("id") String id , @RequestBody UrlInfo urlInfo){
-        urlInfo.setId(Long.parseLong(id));
-        urlInfoJpa.save(urlInfo);
+        UrlInfo old = urlInfoJpa.findOne(Long.parseLong(id));
+        if(null==old){
+            return "not exist";
+        }else{
+            urlInfo.setId(Long.parseLong(id));
+            urlInfoJpa.update(urlInfo.getUrl(),urlInfo.getDesc(),Long.parseLong(id));
+        }
         return "success";
     }
 }
