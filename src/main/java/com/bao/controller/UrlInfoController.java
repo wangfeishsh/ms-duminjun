@@ -31,7 +31,9 @@ public class UrlInfoController {
             return "not exist";
         }else{
             urlInfo.setId(Long.parseLong(id));
-            urlInfoJpa.update(urlInfo.getUrl(),urlInfo.getDesc(),Long.parseLong(id));
+            urlInfoJpa.delete(Long.parseLong(id));
+            urlInfoJpa.save(urlInfo);
+//            urlInfoJpa.update(urlInfo.getUrl(), urlInfo.getDesc(), Long.parseLong(id));
         }
         return "success";
     }
