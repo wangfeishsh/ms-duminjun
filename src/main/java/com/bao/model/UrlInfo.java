@@ -11,7 +11,6 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "urlInfo")
 public class UrlInfo {
     @Id
     private Long id;

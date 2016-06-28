@@ -11,7 +11,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/oauth?characterEncoding=utf-8
     username: root
-    password: root
+    password:
   #数据库连接池配置
     max-active: 200
     max-idle: 100
