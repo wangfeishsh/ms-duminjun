@@ -28,8 +28,8 @@ public class UrlInfoController {
     }
 
     @RequestMapping(value = "/urls/{id}" , method = RequestMethod.POST)
-    public String updateUrlInfo(@PathParam("id") long id , @RequestBody UrlInfo urlInfo){
-        urlInfo.setId(id);
+    public String updateUrlInfo(@PathParam("id") String id , @RequestBody UrlInfo urlInfo){
+        urlInfo.setId(Long.parseLong(id));
         urlInfoJpa.save(urlInfo);
         return "success";
     }
